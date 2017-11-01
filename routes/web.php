@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,5 +61,14 @@ Route::get('/database', 'MovieController@listar')->name('listado'); //href route
 Route::get('actores', 'ActorController@directory')->name('listado_actores');
 
 Route::get('actor/{id}', 'ActorController@show')->name('show_actor');
+
+Route::get('actores/buscar', 'ActorController@search')->name('search_actors');
+// Route::get('actores/redirect', function(){
+//   $search = urldecode(e(Input::get('search')));
+//   $route = "actores";
+//   return redirect($route);
+// });
+//
+// Route::get('actores/{search}', 'ActorController@search');
 
 ?>
