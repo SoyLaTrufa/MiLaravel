@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Peliculas</title>
-  </head>
-  <body>
-    <h1>Pelicula</h1>
+@extends('layouts.master')
+@section('cuerpo')
 
-    {{-- @if (!$find)
-    la pelicula {{$nombre}} no existe
-    @else tenemos la pelicula {{$nombre}}
-    @endif --}}
-    @foreach ($peliculas as $key => $value)
-      {{$value->title}} . <br>
-    @endforeach
+    <h1>Peliculas</h1>
+    <table border="1" width="40%">
+    	@forelse($peliculas as $pelicula)
+    		<tr>
+    			<td>{{ $pelicula->id }}</td>
+    			<td>
 
+    				<a href="{{ route('detalle_pelicula', $pelicula) }}">
+    					{{ $pelicula->title }}
+    				</a>
+    			</td>
+    			<td>
+    				<form method="POST" action="{{ route('eliminar_pelicula', $pelicula) }}" onsubmit="return confirm('seguro?')">
+    					{{ method_field('DELETE') }}
+    					{{ csrf_field() }}
+    					<button type="submit">X</button>
 
-  </body>
-</html>
+    				</form>
+    			</td>
+    		</tr>
+    	@empty
+    		<tr><td>No hay películas</td></tr>
+    	@endforelse
+    </table>
+
+@endsection
+@section('titulo')
+	<title>Peliculas!</title>
+@endsection

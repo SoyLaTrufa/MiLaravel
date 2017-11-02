@@ -46,7 +46,7 @@ Route::get('/saludar','SaludarController@saludar')->name('saludo');
 
 // Route::get('/peliculas/{id}','PeliculasController@buscarPeliculaId');
 // Route::get('/peliculas/buscar/{nombre}','PeliculasController@buscarPeliculaNombre');
-// Route::get('/peliculas','PeliculasController@todasLasPeliculas');
+// Route::get('/peliculas','MovieController@todasLasPeliculas')->name('lista_peliculas');
 
 // Route::get('/peliculas/{id}', 'MovieController@BuscarPeliculaId');
 
@@ -55,14 +55,6 @@ Route::get('/saludar','SaludarController@saludar')->name('saludo');
 
 
 //CLASE 3
-
-Route::get('/database', 'MovieController@listar')->name('listado'); //href router {{'listado'}}
-// Route::get('/database/{id}', 'MovieController@detalle');
-Route::get('actores', 'ActorController@directory')->name('listado_actores');
-
-Route::get('actor/{id}', 'ActorController@show')->name('show_actor');
-
-Route::get('actores/buscar', 'ActorController@search')->name('search_actors');
 // Route::get('actores/redirect', function(){
 //   $search = urldecode(e(Input::get('search')));
 //   $route = "actores";
@@ -70,5 +62,21 @@ Route::get('actores/buscar', 'ActorController@search')->name('search_actors');
 // });
 //
 // Route::get('actores/{search}', 'ActorController@search');
+Route::get('peliculas', 'MovieController@listar')->name('lista_peliculas');
+Route::get('pelicula/{id}', 'MovieController@detalle')->name('detalle_pelicula');
+
+Route::get('actores', 'ActorController@directory')->name('listado_actores');
+Route::get('actor/{id}', 'ActorController@show')->name('show_actor');
+
+Route::get('actores/buscar', 'ActorController@search')->name('search_actors');
+//-----------------------------------------------
+//clase 4
+Route::get('peliculas/crear', 'MovieController@crearFormulario')->name('form_crear_pelicula');
+Route::post('peliculas/crear', 'MovieController@crear')->name('crear_pelicula');
+Route::delete('pelicula/{id}', 'MovieController@eliminar')->name('eliminar_pelicula');
+
+Route::get('actores/crear', 'ActorController@crearForm')->name('form_crear_actor');
+Route::post('actores/crear', 'ActorController@crear')->name('crear_actor');
+Route::delete('actores/{id}', 'ActorController@eliminar')->name('eliminar_actor');
 
 ?>

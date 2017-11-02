@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
-use App\actores;
+
 
 class ActorController extends Controller
 {
@@ -17,6 +17,34 @@ class ActorController extends Controller
         $actor = Actor::find($id);
 
       return view('actor', compact('actor'));
+    }
+
+    public function crearForm(){
+      return view('crear_actor');
+    }
+
+    public function crear(request $request){
+      $this->validate($request, [
+        'first_name'     => 'required',
+        'last_name'      => 'required',
+        'rating'         => 'required|numeric',
+        'favorite_movie_id' => 'required'
+      ],
+      [
+        'first_name.required'         => 'Debe completar este campo',
+        'rating.required'             => 'Debe completar este campo',
+        'favorite_movie_id.required'     => 'Debe completar este campo'
+      ]);
+
+      $actor = new Actor($request->all());
+      $actor->save();
+      return redirect(route('listado_actores'));
+    }
+
+    public function eliminar($id){
+      $actor = Actor::findOrFail($id);
+      $actor->delete();
+      return redirect(route('listado_actores'));
     }
 
     // public function search($search){
