@@ -7,6 +7,7 @@
     <li>AWARDS:{{$pelicula->awards}}</li>
     <li>RELEASE DATE:{{$pelicula->release_date}}</li>
     <li>DURACIÓN:{{$pelicula->length}}</li>
+    <li>GENERO:{{$pelicula->genero->name}}</li>
   </ul>
 @endsection
 @section('titulo')

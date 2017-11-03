@@ -9,7 +9,7 @@ class MovieController extends Controller
 {
 
   public function listar(){
-    $peliculas = Pelicula::all();
+    $peliculas = Pelicula::with('genero')->get();
         // ->take(5)
         // ->get();
         // ->tosql(); debug return$peliculas;
@@ -20,6 +20,7 @@ class MovieController extends Controller
   public function detalle($id){
     $pelicula = Pelicula::Find($id);
     // $pelicula = Pelicula::first();
+    // $genero = $pelicula->genero;
     return view('pelicula', compact('pelicula'));
   }
 
@@ -60,6 +61,8 @@ class MovieController extends Controller
     $pelicula->delete();
     return redirect(route('lista_peliculas'));
   }
+
+
 
   // public function BuscarPeliculaId($id){
   //

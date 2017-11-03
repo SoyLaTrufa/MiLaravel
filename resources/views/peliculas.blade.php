@@ -12,6 +12,11 @@
     					{{ $pelicula->title }}
     				</a>
     			</td>
+          <td>
+            @if ($pelicula->genero)
+              {{$pelicula->genero->name}}
+            @endif
+          </td>
     			<td>
     				<form method="POST" action="{{ route('eliminar_pelicula', $pelicula) }}" onsubmit="return confirm('seguro?')">
     					{{ method_field('DELETE') }}

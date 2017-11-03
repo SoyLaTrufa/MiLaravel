@@ -16,6 +16,7 @@
       <td><a href="{{ route('show_actor', $actor) }}">
         {{ $actor->getNombreCompleto() }}
       </a></td>
+      <td><a href="{{ route('editar_form', $actor) }}">editar</a></td>
       <td><form method="POST" action="{{ route('eliminar_actor', $actor) }}" onsubmit="return confirm('seguro?')">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}

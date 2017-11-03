@@ -27,8 +27,7 @@ class ActorController extends Controller
       $this->validate($request, [
         'first_name'     => 'required',
         'last_name'      => 'required',
-        'rating'         => 'required|numeric',
-        'favorite_movie_id' => 'required'
+        'rating'         => 'required|numeric'
       ],
       [
         'first_name.required'         => 'Debe completar este campo',
@@ -46,6 +45,27 @@ class ActorController extends Controller
       $actor->delete();
       return redirect(route('listado_actores'));
     }
+
+    public function editarForm($id){
+      $actor = Actor::findOrFail($id);
+      return view('editar_actor', compact('actor'));
+    }
+
+    public function editar(Request $request, $id){
+      $this->validate($request, [
+        'first_name'     => 'required',
+        'last_name'      => 'required',
+        'rating'         => 'required|numeric'
+      ],
+      [
+        'rating.numeric' => 'El valor debe ser numerico'
+      ]);
+      $actor = Actor::findOrFail($id);
+      $actor->fill($request->all());
+      $actor->save();
+      return redirect(route('listado_actores'));
+    }
+
 
     // public function search($search){
     //     $actoresBuscados = Actor::where('first_name', 'like', '%dg%')->get();

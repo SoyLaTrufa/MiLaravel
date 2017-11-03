@@ -20,12 +20,6 @@
         <label for="rating">Rating</label>
         <input type="text" name="rating" value="{{ old('rating') }}">
     </div>
-    <div @if ($errors->has('favorite_movie_id'))
-  <span style="color: red;">{{ $errors->first('favorite_movie_id') }}</span>
-@endif>
-        <label for="favorite_movie">Pelicula favorita</label>
-        <input type="text" name="favorite_movie_id" value="{{ old('favorite_movie_id') }}">
-    </div>
     <input type="submit" value="Agregar Pelicula" name="submit"/>
 </form>
 
