@@ -15,9 +15,7 @@
     <nav>
       <ul>
         <li><a href="{{route('listado_actores')}}"><h2>Actores</h2></a></li>
-        <li><a href="{{route('crear_actor')}}"><h2>Crear Actor</h2></a></li>
         <li><a href="{{route('lista_peliculas')}}"><h2>Peliculas</h2></a></li>
-        <li><a href="{{route('crear_pelicula')}}"><h2>Crear Pelicula</h2></a></li>
         <li><a href="{{route('saludo')}}"><h2>Saludo</h2></a></li>
       </ul>
       <div class="clear"></div>

@@ -10,10 +10,13 @@
 </form>
 
 <h1>Actores</h1>
+    <p><a href="{{route('crear_actor')}}"><h2>Crear Actor</h2></a></p>
     <table border="1" width="40%">
+      <td>NOMBRE</td>
+      <td></td>
     @foreach ($actores as $actor)
     <tr>
-      <td><a href="{{ route('show_actor', $actor) }}">
+      <td><a href="{{ route('detalle_actor', $actor) }}">
         {{ $actor->getNombreCompleto() }}
       </a></td>
       <td><a href="{{ route('editar_form', $actor) }}">editar</a></td>

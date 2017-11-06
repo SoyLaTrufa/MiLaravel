@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
+use App\Pelicula;
 
 
 class ActorController extends Controller
 {
-    public function directory(){
+    public function listar(){
       $actores = Actor::all();
         return view('actores', compact('actores'));
     }
 
-    public function show($id){
+    public function detalle($id){
         $actor = Actor::find($id);
 
       return view('actor', compact('actor'));
@@ -32,7 +33,7 @@ class ActorController extends Controller
       [
         'first_name.required'         => 'Debe completar este campo',
         'rating.required'             => 'Debe completar este campo',
-        'favorite_movie_id.required'     => 'Debe completar este campo'
+        'favorite_movie_id.required'  => 'Debe completar este campo'
       ]);
 
       $actor = new Actor($request->all());

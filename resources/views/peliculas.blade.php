@@ -2,7 +2,13 @@
 @section('cuerpo')
 
     <h1>Peliculas</h1>
+    <p><a href="{{route('crear_pelicula')}}"><h2>Crear Pelicula</h2></a></p>
     <table border="1" width="40%">
+      <tr>
+        <td>ID</td>
+        <td>TITULO</td>
+        <td>GÉNERO</td>
+      </tr>
     	@forelse($peliculas as $pelicula)
     		<tr>
     			<td>{{ $pelicula->id }}</td>

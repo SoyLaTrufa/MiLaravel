@@ -65,8 +65,8 @@ Route::get('/saludar','SaludarController@saludar')->name('saludo');
 Route::get('peliculas', 'MovieController@listar')->name('lista_peliculas');
 Route::get('pelicula/{id}', 'MovieController@detalle')->name('detalle_pelicula');
 
-Route::get('actores', 'ActorController@directory')->name('listado_actores');
-Route::get('actor/{id}', 'ActorController@show')->name('show_actor');
+Route::get('actores', 'ActorController@listar')->name('listado_actores');
+Route::get('actor/{id}', 'ActorController@detalle')->name('detalle_actor');
 
 Route::get('actores/buscar', 'ActorController@search')->name('search_actors');
 //-----------------------------------------------
@@ -82,5 +82,7 @@ Route::delete('actores/{id}', 'ActorController@eliminar')->name('eliminar_actor'
 // clase 5
 Route::get('actores/{id}/editar', 'ActorController@editarForm')->name('editar_form');
 Route::put('actores/{id}/editar', 'ActorController@editar')->name('editar_actor');
+
+
 
 ?>
