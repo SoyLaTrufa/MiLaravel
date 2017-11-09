@@ -16,6 +16,7 @@
       <ul>
         <li><a href="{{route('listado_actores')}}"><h2>Actores</h2></a></li>
         <li><a href="{{route('lista_peliculas')}}"><h2>Peliculas</h2></a></li>
+        <li><a href="{{route('subir_img')}}"><h2>Subir Imagenes</h2></a></li>
         <li><a href="{{route('saludo')}}"><h2>Saludo</h2></a></li>
       </ul>
       <div class="clear"></div>
