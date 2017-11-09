@@ -41,6 +41,15 @@
         <label>Fecha de Estreno</label>
         <input type="date" name="release_date" value="{{ old('release_date') }}">
     </div>
+    <div>
+        <label>Género</label>
+        <select class="" name="">
+          <option value="">@foreach ($genero as $key => $value)
+            {{$value->name}}
+          @endforeach</option>
+
+        </select>
+    </div>
     <input type="submit" value="Agregar Pelicula" name="submit"/>
 </form>
 @endsection

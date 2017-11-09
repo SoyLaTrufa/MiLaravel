@@ -3,9 +3,9 @@
   <h2>{{$actor->getNombreCompleto()}}</h2>
   <ul>
     <li>ID:{{$actor->id}}</li>
-    <!-- @if ($actor->favorite_movie_id) -->
+     @if ($actor->favorite_movie_id)
     <li>PELICULA FAVORITA:{{$actor->favorite_movie_id}}</li>
-    <!-- @endif -->
+    @endif
     <li>RATING:{{$actor->rating}}</li>
 
 

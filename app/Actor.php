@@ -15,6 +15,8 @@ class Actor extends Model
       return $this->first_name . " " . $this->last_name;
     }
 
-  
+  public function peliculaFavorita(){
+    return $this->hasOne(Pelicula::class, 'favorite_movie_id');
+  }
 
 }

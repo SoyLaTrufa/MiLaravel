@@ -83,6 +83,10 @@ Route::delete('actores/{id}', 'ActorController@eliminar')->name('eliminar_actor'
 Route::get('actores/{id}/editar', 'ActorController@editarForm')->name('editar_form');
 Route::put('actores/{id}/editar', 'ActorController@editar')->name('editar_actor');
 
+// clase 6
 
+Route::get('subir', 'SubirImagenController@mostrarSubir')->name('subir_img');
+Route::post('subir', 'SubirImagenController@subir');
 
 ?>
+<!-- composer dump-autoload -->

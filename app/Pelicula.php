@@ -17,7 +17,7 @@ class Pelicula extends Model
     return $this->belongsTo(Genero::class, 'genre_id');
   }
 
-  public function peliculasFavoritas(){
-    return $this->hasMany(Actor::class, 'favorite_movie_id', 'movie_id');
+  public function favoritaDeActores(){
+    return $this->hasMany(Actor::class, 'movie_id');
   }
 }
