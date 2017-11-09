@@ -10,7 +10,7 @@ use App\Pelicula;
 class ActorController extends Controller
 {
     public function listar(){
-      $actores = Actor::all();
+      $actores = Actor::paginate(10);
         return view('actores', compact('actores'));
     }
 

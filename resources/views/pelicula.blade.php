@@ -8,6 +8,11 @@
     <li>RELEASE DATE:{{$pelicula->release_date}}</li>
     <li>DURACIÓN:{{$pelicula->length}}</li>
     <li>GENERO:{{$pelicula->genero->name}}</li>
+    <li>ACTORES:</li>
+    @foreach ($actores as $actor)
+    <li>{{$actor->first_name}} {{$actor->last_name}} </li>
+    @endforeach
+
   </ul>
 @endsection
 @section('titulo')

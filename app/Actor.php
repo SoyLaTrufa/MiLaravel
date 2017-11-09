@@ -15,6 +15,12 @@ class Actor extends Model
       return $this->first_name . " " . $this->last_name;
     }
 
-  
+    public function peliculaFavorita(){
+      return $this->hasOne(Actor::class, 'favorite_movie_id', 'movie_id');
+    }
+
+    public function peliculas(){
+      return $this->belongsToMany(Pelicula::class, 'actor_movie', 'actor_id', 'movie_id');
+    }
 
 }

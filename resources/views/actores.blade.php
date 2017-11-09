@@ -28,6 +28,8 @@
     @endforeach
     </table>
 
+    {{$actores->links()}}
+
 
 @endsection
 @section('titulo')

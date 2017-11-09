@@ -20,4 +20,8 @@ class Pelicula extends Model
   public function peliculasFavoritas(){
     return $this->hasMany(Actor::class, 'favorite_movie_id', 'movie_id');
   }
+
+  public function actores(){
+    return $this->belongsToMany(Actor::class, 'actor_movie', 'movie_id', 'actor_id');
+  }
 }

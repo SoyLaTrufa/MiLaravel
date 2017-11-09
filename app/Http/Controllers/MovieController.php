@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pelicula;
+use App\Actor;
 
 class MovieController extends Controller
 {
 
   public function listar(){
-    $peliculas = Pelicula::with('genero')->get();
+    $peliculas = Pelicula::all();
+        // with('genero')->get()
         // ->take(5)
         // ->get();
         // ->tosql(); debug return$peliculas;
@@ -19,9 +21,11 @@ class MovieController extends Controller
 
   public function detalle($id){
     $pelicula = Pelicula::Find($id);
+
     // $pelicula = Pelicula::first();
     // $genero = $pelicula->genero;
-    return view('pelicula', compact('pelicula'));
+    $actores = $pelicula->actores;
+    return view('pelicula', compact('pelicula', 'actores'));
   }
 
   public function crearFormulario(){
