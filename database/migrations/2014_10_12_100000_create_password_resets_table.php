@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Directors extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class Directors extends Migration
      */
     public function up()
     {
-      Schema::create('directors', function(Blueprint $table){
-        $table->increments('id');
-        $table->string('first_name', 15);
-        $table->string('last_name', 15);
-        $table->string('birthDate', 15);
-      });
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
     }
 
     /**
@@ -28,6 +27,6 @@ class Directors extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directors');
+        Schema::dropIfExists('password_resets');
     }
 }

@@ -14,7 +14,7 @@ class CrearColumnaDirectorsEnMovies extends Migration
     public function up()
     {
       Schema::table('movies', function (Blueprint $table) {
-          $table->string('director_id', 30);
+          $table->integer('director_id');
           $table->foreign('director_id')->references('id')->on('directors');
       });
     }

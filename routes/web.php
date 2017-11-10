@@ -88,5 +88,6 @@ Route::put('actores/{id}/editar', 'ActorController@editar')->name('editar_actor'
 Route::get('subir', 'SubirImagenController@mostrarSubir')->name('subir_img');
 Route::post('subir', 'SubirImagenController@subir');
 
-?>
-<!-- composer dump-autoload -->
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
